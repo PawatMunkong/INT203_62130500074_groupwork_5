@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gura Gallery</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN    background="images/bg1.jpg -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+
+<body >
+
+  
+    <div id="app" class="container mx-auto h-screen flex items-center justify-center  ">
+        <div class="mt-20" v-if="!showgura">
+            <photosearch :guralength="guralength" :countlikes="countlikes" :searchphoto="searchphoto"  @cancel="cancel"  @guraresult="guraresult" @searchphotoguga="searchphotoguga"></photosearch>
+            <photoitem :imgs="imgs" :findgura="findgura" @Guracick="Guracick" @guraShow="guraShow"></photoitem>
+        </div>
+        <div class="bg-black min-h-screen w-full flex justify-center" v-else="showgura">
+            <photoview :showgura="showgura" :guralove="guralove" @guraclose="guraclose"></photoview>
+        </div>
+
+    </div>
+
+
+  <script src="./main.js"> </script>
+  <script src="./components/PhotoItem.js"></script>
+  <script src="./components/PhotoSearch.js"></script>
+  <script src="./components/PhotoView.js"></script>
+  <script>
+
+    const mountedApp = app.mount('#app')
+  </script>
+
+</body>
+
+</html>
